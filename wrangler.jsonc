@@ -2,7 +2,16 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "seqta-dm-click-server",
   "main": "src/index.ts",
-  "compatibility_date": "2026-03-25"
+  "compatibility_date": "2026-03-25",
+
+  "kv_namespaces": [
+    {
+      "binding": "SEQTADM",
+      "id": "2a307beaaf5b4e2695579ec7122d607c",
+      "remote": true,
+    },
+  ],
+
   // "compatibility_flags": [
   //   "nodejs_compat"
   // ],
