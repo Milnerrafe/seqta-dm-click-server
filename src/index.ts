@@ -79,17 +79,21 @@ app.all("/", async (c) => {
 
   <style>.htmx-indicator{opacity:0;visibility: hidden} .htmx-request .htmx-indicator, .htmx-request.htmx-indicator{opacity:1;visibility: visible;transition: opacity 200ms ease-in}</style></head><body><div class="parent-container">
 
-  <button hx-post="/clicked" hx-swap="outerHTML" class="centered-div">
-
+  <button hx-post="/clicked"   hx-swap="outerHTML" class="centered-div">
 
   <div class="text">
+
+  <div class="update" hx-post="/update" hx-trigger="every 2s">
 
   This button has been clicked ${times}
 
   </div>
 
+  </div>
+
 
   </button>
+
 
   </div></body></html>`;
 
@@ -104,21 +108,41 @@ app.all("/clicked", async (c) => {
   timesnumber++;
 
   let html = `
-  <button hx-post="/clicked" hx-swap="outerHTML" class="centered-div">
-
+  <button hx-post="/clicked"   hx-swap="outerHTML" class="centered-div">
 
   <div class="text">
+
+  <div class="update" hx-post="/update" hx-trigger="every 2s">
 
   This button has been clicked ${timesnumber}
 
   </div>
 
+  </div>
 
   </button>
 
-  </div>`;
+  `;
 
   c.executionCtx.waitUntil(c.env.SEQTADM.put(`count`, timesnumber.toString()));
+
+  return c.html(html);
+});
+
+app.all("/update", async (c) => {
+  let times = await c.env.SEQTADM.get(`count`);
+
+  let timesnumber = parseInt(times);
+
+  timesnumber++;
+
+  let html = `
+    <div class="update" hx-post="/update" hx-trigger="every 2s">
+
+    This button has been clicked ${timesnumber}
+
+    </div>
+  `;
 
   return c.html(html);
 });
