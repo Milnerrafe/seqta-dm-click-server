@@ -9,6 +9,8 @@ const app = new Hono<{ Bindings: Bindings }>();
 app.all("/", async (c) => {
   let times = await c.env.SEQTADM.get(`count`);
 
+  console.log(times);
+
   let html = `<html><head><script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
 
   <style>
@@ -107,6 +109,8 @@ app.all("/clicked", async (c) => {
 
   timesnumber++;
 
+  console.log(timesnumber);
+
   let html = `
   <button hx-post="/clicked"   hx-swap="outerHTML" class="centered-div">
 
@@ -135,6 +139,8 @@ app.all("/update", async (c) => {
   let timesnumber = parseInt(times);
 
   timesnumber++;
+
+  console.log(timesnumber);
 
   let html = `
     <div class="update" hx-post="/update" hx-trigger="every 2s">
