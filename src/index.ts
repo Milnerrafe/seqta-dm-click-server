@@ -77,10 +77,26 @@ app.all("/", async (c) => {
 
     }
 
+    .error {
+    font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;
+     font-size:23px;
+     background-color:#f1c40f;
+     background-position-x:0%;
+     border-width:0px;
+     border-top-left-radius:5px;
+     border-top-right-radius:5px;
+     border-bottom-left-radius:5px;
+     border-bottom-right-radius:5px;
+    }
+
   </style>
 
   <style>.htmx-indicator{opacity:0;visibility: hidden} .htmx-request .htmx-indicator, .htmx-request.htmx-indicator{opacity:1;visibility: visible;transition: opacity 200ms ease-in}</style></head><body><div class="parent-container">
 
+  <div class="error">
+  Attention users, we have hit our daily limits for hosting provider therefore the bucking count can no longer go higher. This issue is currently being worked. We are working to resolve this issue currently. An update should fix this soon.
+
+  </div>
   <button hx-post="/clicked"   hx-swap="outerHTML" class="centered-div">
 
   <div class="text">
