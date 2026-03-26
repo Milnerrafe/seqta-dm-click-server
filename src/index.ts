@@ -92,7 +92,7 @@ app.all("/", async (c) => {
   <style>.htmx-indicator{opacity:0;visibility: hidden} .htmx-request .htmx-indicator, .htmx-request.htmx-indicator{opacity:1;visibility: visible;transition: opacity 200ms ease-in}</style></head><body><div class="parent-container">
 
   <div class="error">
-  Attention users, we have hit our daily limits for hosting provider therefore the bucking count can no longer go higher. This issue is currently being worked. We are working to resolve this issue currently. An update should fix this soon.
+  Attention users, we have hit our daily limits for hosting provider therefore the clicking count can no longer increase. This issue is currently being worked. We are working to resolve this issue currently. An update should fix this soon.
 
   </div>
   <button hx-post="/clicked"   hx-swap="outerHTML" class="centered-div">
